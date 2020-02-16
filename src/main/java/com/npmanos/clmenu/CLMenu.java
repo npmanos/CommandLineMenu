@@ -56,7 +56,7 @@ public class CLMenu {
         System.out.println(name);
         System.out.println();
 
-        for (var option : options) {
+        for (MenuOption option : options) {
             System.out.println(option.getOptionNum() + ". " + option.getDescription());
         }
         if (isSubmenu) {
