@@ -72,7 +72,7 @@ public class CLMenu {
                 return;
             }
 
-            options.get(selection).getAction().run();
+            options.get(selection - 1).getAction().run();
         }
     }
 
