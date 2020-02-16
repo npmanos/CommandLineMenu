@@ -52,26 +52,28 @@ public class CLMenu {
     }
 
     public void display() {
-        clear();
-        System.out.println(name);
-        System.out.println();
+        while (true) {
+            clear();
+            System.out.println(name);
+            System.out.println();
 
-        for (MenuOption option : options) {
-            System.out.println(option.getOptionNum() + ". " + option.getDescription());
+            for (MenuOption option : options) {
+                System.out.println(option.getOptionNum() + ". " + option.getDescription());
+            }
+            if (isSubmenu) {
+                System.out.println("0. Return");
+            } else {
+                System.out.println("0. Quit");
+            }
+
+            int selection = select();
+
+            if (selection == 0) {
+                return;
+            }
+
+            options.get(selection).getAction().run();
         }
-        if (isSubmenu) {
-            System.out.println("0. Return");
-        } else {
-            System.out.println("0. Quit");
-        }
-
-        int selection = select();
-
-        if (selection == 0) {
-            return;
-        }
-
-        options.get(selection).getAction().run();
     }
 
     private int select() {
