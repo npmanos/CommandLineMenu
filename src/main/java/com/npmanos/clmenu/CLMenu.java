@@ -3,6 +3,7 @@ package com.npmanos.clmenu;
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static java.util.Collections.unmodifiableList;
 
@@ -11,14 +12,14 @@ public class CLMenu {
     private final List<MenuOption> options;
     private final boolean isSubmenu;
 
-    private Console in;
+    private Scanner in;
 
     private CLMenu(String name, List<MenuOption> options, boolean isSubmenu) {
         this.name = name;
         this.options = options;
         this.isSubmenu = isSubmenu;
 
-        in = System.console();
+        in = new Scanner(System.in);
     }
 
     private CLMenu(String name, List<MenuOption> options) {
@@ -81,7 +82,7 @@ public class CLMenu {
         System.out.print("Select an option: ");
         int selection;
         try {
-            selection = Integer.parseInt(in.readLine());
+            selection = Integer.parseInt(in.nextLine());
         } catch (NumberFormatException e) {
             System.out.println();
             System.out.println("INVALID SELECTION!");
