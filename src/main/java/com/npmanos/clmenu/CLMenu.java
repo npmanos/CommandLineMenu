@@ -25,6 +25,32 @@ public class CLMenu {
         this(name, options, false);
     }
 
+    public static final class Builder {
+        private final ArrayList<MenuOption> options = new ArrayList<>();
+        private final String menuName;
+
+        public Builder(String menuName) {
+            this.menuName = menuName;
+        }
+
+        public Builder addOption(String description, Runnable action) {
+            options.add(new MenuOption(options.size() + 1, description, action));
+            return this;
+        }
+
+        public Builder addSubmenu(CLMenu submenu) {
+            CLMenu markedSubmenu = new CLMenu(submenu.name, submenu.options, true);
+            options.add(new MenuOption(options.size() + 1, markedSubmenu.name, markedSubmenu::display));
+            return this;
+        }
+
+        public CLMenu build() {
+            List<MenuOption> options = new ArrayList<>(this.options);
+
+            return new CLMenu(menuName, unmodifiableList(options));
+        }
+    }
+
     public void display() {
         clear();
         System.out.println(name);
