@@ -1,5 +1,8 @@
 package com.npmanos.clmenu;
 
+/**
+ * POJO storing MenuOption data.
+ */
 class MenuOption {
     private int optionNum;
     private String description;
@@ -11,15 +14,24 @@ class MenuOption {
         this.action = action;
     }
 
-    public int getOptionNum() {
+    /**
+     * Get option number.
+     */
+    int getOptionNum() {
         return optionNum;
     }
 
-    public String getDescription() {
+    /**
+     * Get option description.
+     */
+    String getDescription() {
         return description;
     }
 
-    public Runnable getAction() {
+    /**
+     * Get runnable to execute when option is selected.
+     */
+    Runnable getAction() {
         return action;
     }
 }
