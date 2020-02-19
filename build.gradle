@@ -20,7 +20,7 @@ repositories {
 }
 
 javadoc {
-    title = "CommandLineMenu (CLMenu)"
+    title = "CommandLineMenu"
     options.addBooleanOption('html5', true)
     destinationDir = reporting.file("../../docs")
 }
