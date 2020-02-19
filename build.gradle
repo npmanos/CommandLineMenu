@@ -18,3 +18,9 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
+
+javadoc {
+    title = "CommandLineMenu (CLMenu)"
+    options.addBooleanOption('html5', true)
+    destinationDir = reporting.file("../../docs")
+}

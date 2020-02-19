@@ -92,6 +92,11 @@ public class CLMenu {
         private final ArrayList<MenuOption> options = new ArrayList<>();
         private final String menuName;
 
+        /**
+         * Create a new {@link CLMenu.Builder}.
+         *
+         * @param menuName The name to display in the header of the menu.
+         */
         public Builder(String menuName) {
             this.menuName = menuName;
         }
