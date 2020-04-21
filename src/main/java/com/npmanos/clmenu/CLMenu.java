@@ -1,5 +1,7 @@
 package com.npmanos.clmenu;
 
+import org.fusesource.jansi.AnsiConsole;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -138,7 +140,6 @@ public class CLMenu {
     }
 
     private void clear() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        AnsiConsole.out().print("\033[H\033[2J"); // ANSI escape sequence to clear console
     }
 }
